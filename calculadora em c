@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ter1, ter2, result, s;
+double ter1, ter2, result;
+int s;
 char escfin;
 
 void entrada(){
     printf("Digite o primeiro numero: ");
-    scanf(" %d", &ter1);
+    scanf(" %lf", &ter1);
     printf("Digite o segundo numero: ");
-    scanf(" %d", &ter2);
+    scanf(" %lf", &ter2);
 }
 
 int final(){
     printf("\nDeseja realizar outra operacao? (s/n): ");
     scanf(" %c", &escfin);
     switch(escfin){
-        case 's':
+        case 's' || 'S':
         s=1;
         return s;
 
-        case 'n':
+        case 'n' || 'N':
         s=0;
         return s;
 
@@ -54,7 +55,7 @@ void divi(){
 }
 
 void op5(){
-    printf("Obrigado por usar a calculadora! Ate a proxima");
+    printf("Obrigado por usar a calculadora! Ate a proxima.");
 }
 
 int main(){
@@ -73,17 +74,17 @@ int main(){
     {
     case 1:
     soma();
-    printf("O resultado eh: %d + %d = %d", ter1, ter2, result);
+    printf("O resultado eh: %lf + %lf = %lf", ter1, ter2, result);
     break;
     
     case 2:
     sub();
-    printf("O resultado eh: %d - %d = %d", ter1, ter2, result);
+    printf("O resultado eh: %lf - %lf = %lf", ter1, ter2, result);
     break;
 
     case 3:
     mult();
-    printf("O resultado eh: %d * %d = %d", ter1, ter2, result);
+    printf("O resultado eh: %lf * %lf = %lf", ter1, ter2, result);
     break;
 
     case 4:
@@ -93,7 +94,7 @@ int main(){
         final();
     }
     else{
-        printf("O resultado eh: %d / %d = %d", ter1, ter2, result);
+        printf("O resultado eh: %lf / %lf = %lf", ter1, ter2, result);
     }
     break;
 
@@ -101,6 +102,9 @@ int main(){
     op5();
     return 0;
     }
+
+    default:
+    printf("Opcao invalida. Favor, responder com 1, 2, 3, 4 ou 5.");
 
     final();
     if (s==1){
