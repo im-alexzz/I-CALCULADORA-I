@@ -16,11 +16,19 @@ int final(){
     printf("\nDeseja realizar outra operacao? (s/n): ");
     scanf(" %c", &escfin);
     switch(escfin){
-        case 's' || 'S':
+        case 's':
         s=1;
         return s;
 
-        case 'n' || 'N':
+        case 'S':
+        s=1;
+        return s;
+
+        case 'n':
+        s=0;
+        return s;
+
+        case 'N':
         s=0;
         return s;
 
@@ -59,7 +67,6 @@ void op5(){
 }
 
 int main(){
-
     #ifdef _WIN32
     system("cls");
 #else
@@ -74,17 +81,17 @@ int main(){
     {
     case 1:
     soma();
-    printf("O resultado eh: %lf + %lf = %lf", ter1, ter2, result);
+    printf("O resultado eh: %g + %g = %g", ter1, ter2, result);
     break;
     
     case 2:
     sub();
-    printf("O resultado eh: %lf - %lf = %lf", ter1, ter2, result);
+    printf("O resultado eh: %g - %g = %g", ter1, ter2, result);
     break;
 
     case 3:
     mult();
-    printf("O resultado eh: %lf * %lf = %lf", ter1, ter2, result);
+    printf("O resultado eh: %g * %g = %g", ter1, ter2, result);
     break;
 
     case 4:
@@ -94,17 +101,17 @@ int main(){
         final();
     }
     else{
-        printf("O resultado eh: %lf / %lf = %lf", ter1, ter2, result);
+        printf("O resultado eh: %g / %g = %g", ter1, ter2, result);
     }
     break;
 
     case 5:
     op5();
     return 0;
-    }
 
     default:
     printf("Opcao invalida. Favor, responder com 1, 2, 3, 4 ou 5.");
+    }
 
     final();
     if (s==1){
