@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 double ter1, ter2, result;
-int s;
+int s, m;
 char escfin;
 
 void entrada(){
@@ -99,6 +99,7 @@ int opin(){
 
     case 5:
     op5();
+    m=1;
     return 0;
 
     default:
@@ -108,6 +109,17 @@ int opin(){
     return 0;
     break;
     }
+
+     final();
+    if(s==0){
+        op5();
+        m=1;
+        return 0;
+    }
+    else if(s==1){
+        m=0;
+        return m;
+    }  
 }
 
 
@@ -122,11 +134,7 @@ int main(){
     printf("===================================================\n\t>>>>> Calculadora <<<<<\n\t\t>>>>> Simples <<<<<\n===================================================\n");
     printf("Selecione uma operacao:\n1. Adicao\n2. Subtracao\n3. Multiplicacao\n4. Divisao\n5. Sair\nOpcao: ");
     opin();
-    final();
-    if(s==0){
-        op5();
-    }
-    else if(s==1){
+    if(m==0){
         main();
     }
 }
