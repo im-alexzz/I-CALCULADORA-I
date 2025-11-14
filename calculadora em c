@@ -66,15 +66,7 @@ void op5(){
     printf("Obrigado por usar a calculadora! Ate a proxima.");
 }
 
-int main(){
-    #ifdef _WIN32
-    system("cls");
-#else
-    system("clear");
-#endif
-
-    printf("===================================================\n\t>>>>> Calculadora <<<<<\n\t\t>>>>> Simples <<<<<\n===================================================\n");
-    printf("Selecione uma operacao:\n1. Adicao\n2. Subtracao\n3. Multiplicacao\n4. Divisao\n5. Sair\nOpcao: ");
+int opin(){
     int escin;
     scanf("%d", &escin);
     switch (escin)
@@ -110,14 +102,84 @@ int main(){
     return 0;
 
     default:
-    printf("Opcao invalida. Favor, responder com 1, 2, 3, 4 ou 5.");
-    }
+    printf("Opcao invalida. Favor, responder com 1, 2, 3, 4 ou 5: ");
+    opin();
+}}
 
-    final();
+int main(){
+
+    #ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+
+    printf("===================================================\n\t>>>>> Calculadora <<<<<\n\t\t>>>>> Simples <<<<<\n===================================================\n");
+    printf("Selecione uma operacao:\n1. Adicao\n2. Subtracao\n3. Multiplicacao\n4. Divisao\n5. Sair\nOpcao: ");
+    char escin;
+    scanf(" %c", &escin);
+    switch (escin)
+    {
+    case 1:
+    soma();
+    printf("O resultado eh: %g + %g = %g", ter1, ter2, result);
+        final();
     if (s==1){
         main();
     }
     else{
-        printf("Obrigado por usar a calculadora! Ate a proxima");
+        printf("Obrigado por usar a calculadora! Ate a proxima.");
+    }
+    break;
+    
+    case 2:
+    sub();
+    printf("O resultado eh: %g - %g = %g", ter1, ter2, result);
+        final();
+    if (s==1){
+        main();
+    }
+    else{
+        printf("Obrigado por usar a calculadora! Ate a proxima.");
+    }
+    break;
+
+    case 3:
+    mult();
+    printf("O resultado eh: %g * %g = %g", ter1, ter2, result);
+        final();
+    if (s==1){
+        main();
+    }
+    else{
+        printf("Obrigado por usar a calculadora! Ate a proxima.");
+    }
+    break;
+
+    case 4:
+    divi();
+    if (ter2==0){
+        printf("Erro: nao eh possivel dividir por 0");
+        final();
+    }
+    else{
+        printf("O resultado eh: %g / %g = %g", ter1, ter2, result);
+        final();
+    if (s==1){
+        main();
+    }
+    else{
+        printf("Obrigado por usar a calculadora! Ate a proxima.");
+    }
+    }
+    break;
+
+    case 5:
+    op5();
+    return 0;
+
+    default:
+    printf("Opcao invalida. Favor, responder com 1, 2, 3, 4 ou 5: ");
+    opin();
     }
 }
